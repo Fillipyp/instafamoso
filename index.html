@@ -1,0 +1,335 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    @media(min-width:768px) {
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 10px;
+        row-gap: 40px;
+        margin-top: 20px;
+        padding: 30px;
+      }
+
+      .gallery-cell {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        flex-basis: calc(25% - 8px);
+        align-items: center;
+        text-align: center;
+      }
+
+      .teste {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        flex-basis: calc(25% - 8px);
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    @media(max-width:750px) {
+      .gallery-cell-title {
+      margin-block: 10px;
+      font-weight: 600;
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      color: #04fbb3;
+      font-family: poppins, Sans-serif;
+      font-size: 20px;
+    }
+      .gallery {
+        padding: 30px;
+      }
+
+      .gallery-cell {
+        display: none;
+      }
+
+      .section_client_video {
+        width: 100%;
+        height: 197px;
+        margin-bottom: 10px;
+      }
+    }
+
+    .ytp-large-play-button-bg {
+      -webkit-transition: fill 0.1s cubic-bezier(0.4, 0, 1, 1),
+        fill-opacity 0.1s cubic-bezier(0.4, 0, 1, 1);
+      transition: fill 0.1s cubic-bezier(0.4, 0, 1, 1),
+        fill-opacity 0.1s cubic-bezier(0.4, 0, 1, 1);
+      fill: #212121;
+      fill-opacity: 0.8;
+    }
+
+    @media(max-width:1000px) {
+      .fullscreen-video {
+        width: 79vw;
+        height: 33vh;
+        padding: 50px;
+        position: fixed;
+        display: none;
+        top: -5;
+        left: -7;
+      }
+    }
+
+    @media(min-width:768px) {
+      .gallery-cell-title {
+      margin-block: 10px;
+      font-weight: 600;
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      color: #04fbb3;
+      font-family: poppins, Sans-serif;
+      font-size: 18px;
+    }
+      .section_client_video {
+        display: none;
+      }
+
+      .fullscreen-video {
+        width: 88vw;
+        height: 50vh;
+        padding: 50px;
+        position: fixed;
+        display: none;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    @media(min-width:1100px) {
+      .fullscreen-video {
+        width: 94vw;
+        height: 85vh;
+        padding: 50px;
+        position: fixed;
+        display: none;
+        top: 0;
+        left: 0;
+      }
+      .gallery-cell-title {
+      margin-block: 10px;
+      font-weight: 600;
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      color: #04fbb3;
+      font-family: poppins, Sans-serif;
+      font-size: 25px;
+    }
+    }
+
+    .gallery-thumbnail {
+      aspect-ratio: 16/9;
+      width: 100%;
+      background-size: 100% 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url("https://zapnanuvem.com/wp-content/uploads/2021/09/thumbnailyoutube.png");
+    }
+
+    .gallery-thumbnail:hover {
+      cursor: pointer;
+    }
+
+
+
+    @media only screen and (min-width: 900px) {
+
+      section[data-id="fd28dd5"],
+      section[data-id="ece1d86"],
+      section[data-id="1eb8876"],
+      section[data-id="f183e57"],
+      section[data-id="fbe6a32"],
+      section[data-id="21d65fe"],
+      section[data-id="a4cc246"],
+      div[data-id="0698fe0"],
+      div[data-id="eef79c9"] {
+        display: none;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+      const fullscreenVideo = document.querySelector(".fullscreen-video");
+      const iframe = fullscreenVideo.querySelector("iframe");
+
+      document.querySelectorAll(".gallery-thumbnail").forEach((cell) => {
+        const firstPath = cell.querySelector("path");
+        cell.onmouseover = () => {
+          firstPath.style = "fill: #f00; fill-opacity: 1;";
+        };
+        cell.onmouseleave = () => {
+          firstPath.style = "fill: #212121; fill-opacity: 0.8;";
+        };
+        cell.onclick = () => {
+          const videoUrl = cell.querySelector("svg").getAttribute("data-url");
+          iframe.setAttribute("src", videoUrl);
+          fullscreenVideo.style = "display: block;";
+        };
+      });
+
+      fullscreenVideo.onclick = () => {
+        fullscreenVideo.style = "display: none;";
+        iframe.setAttribute("src", "");
+      };
+    });
+  </script>
+  <div class="gallery js-flickity"
+    data-flickity-options='{ "wrapAround": false, "groupCells": true, "cellAlign": "left" }'>
+    <div class="teste">
+      <p class="gallery-cell-title">Apresentação da plataforma</p>
+      <div class="gallery-cell">
+
+        <div class="gallery-thumbnail">
+          <svg class="section_video" version="1.1" viewBox="0 0 68 48" width="30%"
+            data-url="https://player.vimeo.com/video/611083709?h=dee6341bcc">
+            <path class="ytp-large-play-button-bg"
+              d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"
+              fill="#f00"></path>
+            <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <video onclick="fullScreenTgl();" class="section_client_video" width="100%"
+      poster="https://zapnanuvem.com/wp-content/uploads/2021/09/thumbnailyoutube.png" controls>
+      <source src="img-instafamoso/Apresentação ZapNaNuvem.com.mp4" type="video/mp4">
+    </video>
+
+    <div class="teste">
+      <p class="gallery-cell-title">Como conectar seu WhatsApp</p>
+      <div class="gallery-cell">
+
+        <div class="gallery-thumbnail">
+          <svg version="1.1" viewBox="0 0 68 48" width="30%"
+            data-url="https://player.vimeo.com/video/626748479?h=9d3047209c">
+            <path class="ytp-large-play-button-bg"
+              d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"
+              fill="#f00"></path>
+            <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <video class="section_client_video" poster="https://zapnanuvem.com/wp-content/uploads/2021/09/thumbnailyoutube.png"
+      controls>
+      <source src="img-instafamoso/ZapNaNuvem.com - Conectar WhatsApp.mp4" type="video/mp4">
+    </video>
+    <div class="teste">
+      <p class="gallery-cell-title">Gerenciar Contas do WhatsApp</p>
+      <div class="gallery-cell">
+        <div class="gallery-thumbnail">
+          <svg version="1.1" viewBox="0 0 68 48" width="30%"
+            data-url="https://player.vimeo.com/video/626748520?h=b6aa8deedb">
+            <path class="ytp-large-play-button-bg"
+              d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"
+              fill="#f00"></path>
+            <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <video class="section_client_video" poster="https://zapnanuvem.com/wp-content/uploads/2021/09/thumbnailyoutube.png"
+      controls>
+      <source src="img-instafamoso/ZapNaNuvem.com - Gerenciador de contas.mp4" type="video/mp4">
+    </video>
+    <div class="teste">
+      <p class="gallery-cell-title">Enviar Mensagens</p>
+      <div class="gallery-cell">
+
+        <div class="gallery-thumbnail">
+          <svg version="1.1" viewBox="0 0 68 48" width="30%"
+            data-url="https://player.vimeo.com/video/633198821?h=711f3092c1">
+            <path class="ytp-large-play-button-bg"
+              d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"
+              fill="#f00"></path>
+            <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <video class="section_client_video" poster="https://zapnanuvem.com/wp-content/uploads/2021/09/thumbnailyoutube.png"
+      controls>
+      <source src="img-instafamoso/ZapNaNuvem.com - Envio de Mensagens em Massa.mp4" type="video/mp4">
+    </video>
+    <div class="teste">
+      <p class="gallery-cell-title">ChatBot</p>
+      <div class="gallery-cell">
+
+        <div class="gallery-thumbnail">
+          <svg version="1.1" viewBox="0 0 68 48" width="30%"
+            data-url="https://player.vimeo.com/video/626748615?h=57a3102dcf">
+            <path class="ytp-large-play-button-bg"
+              d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"
+              fill="#f00"></path>
+            <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <video class="section_client_video" poster="https://zapnanuvem.com/wp-content/uploads/2021/09/thumbnailyoutube.png"
+      controls>
+      <source src="img-instafamoso/ZapNaNuvem.com - ChatBot.mp4" type="video/mp4">
+    </video>
+    <div class="teste">
+      <p class="gallery-cell-title">AutoResponder</p>
+      <div class="gallery-cell">
+
+        <div class="gallery-thumbnail">
+          <svg version="1.1" viewBox="0 0 68 48" width="30%"
+            data-url="https://player.vimeo.com/video/626748557?h=62b11fc4f4">
+            <path class="ytp-large-play-button-bg"
+              d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"
+              fill="#f00"></path>
+            <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <video class="section_client_video" poster="https://zapnanuvem.com/wp-content/uploads/2021/09/thumbnailyoutube.png"
+      controls>
+      <source src="img-instafamoso/ZapNaNuvem.com - AutoResponder.mp4" type="video/mp4">
+    </video>
+    <div class="teste">
+      <p class="gallery-cell-title">Extrator de contatos</p>
+      <div class="gallery-cell">
+        <div class="gallery-thumbnail">
+          <svg version="1.1" viewBox="0 0 68 48" width="30%"
+            data-url="https://player.vimeo.com/video/636305249?h=7a52c4810e">
+            <path class="ytp-large-play-button-bg"
+              d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"
+              fill="#f00"></path>
+            <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <video class="section_client_video" poster="https://zapnanuvem.com/wp-content/uploads/2021/09/thumbnailyoutube.png"
+      controls>
+      <source src="img-instafamoso/ZapNaNuvem - Extrair contatos de grupos.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="fullscreen-video">
+    <iframe src="https://www.youtube.com/embed/7jpKLrnFcWY" width="100%" height="100%" title="YouTube video player"
+      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+</body>
+
+</html>

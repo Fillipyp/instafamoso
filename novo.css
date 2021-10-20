@@ -1,0 +1,125 @@
+.tenth_plan {
+    padding: 28px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+.tenth_video_grade h3{
+    text-align: center;
+    color: #04fbb3;
+    font-family: "Poppins", Sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* .line{
+    width: 100px;
+    margin: 0 auto;
+    background-color: red;
+    height: 5px;
+} */
+
+
+
+  @media(max-width:750px){
+    .tenth_box {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        padding: 10px;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      /* .thumb_zap{
+        width: 100%;
+        max-width: 300px;
+        height: 180px;
+        position: absolute;
+    }
+    .play_button {
+        top: 27%;
+        left: 45%;
+        width: 40px;
+        position: absolute;
+        z-index: 2;
+      } */
+  }
+
+  @media(min-width:768px){
+    .thumb_zap{
+        width: 100%;
+        max-width: 170px;
+        height: 150px;
+        position: absolute;
+    }
+    .play_button {
+        top: 22%;
+        left: 11%;
+        width: 40px;
+        position: absolute;
+        z-index: 2;
+      }
+      
+    .tenth_box {
+        width: 100%;
+        max-width: none;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+      }
+      .section_client_video {
+        width: 100%;
+        max-width: 800px;
+      }
+      .tenth_video_grade{
+        padding: 15px;
+      }
+      .h3_desktop{
+          margin-bottom: 18px;
+      }
+      .h3_desktop{
+        margin-bottom: 35px;
+    } 
+  }
+
+  @media(min-width:1024px){
+    .thumb_zap{
+        width: 100%;
+        max-width: 270px;
+        height: 170px;
+        position: absolute;
+    }
+    .play_button {
+
+        width: 80px;
+        transition: all 0.5s;
+        filter: invert(10%);
+      }
+      
+      .play_button:hover {
+        filter: invert(0%);
+        transform: scale(1.1);
+        transition: all 0.5s;
+    }
+    .play_button {
+        position: absolute;
+        top: 35%;
+        left: 15%;
+        width: 50px;
+        z-index: 2;
+      }
+    .tenth_box {
+        width: 100%;
+        max-width: 1100px;
+        display: flex;
+        flex-direction: row;
+      }
+      .tenth_video_grade{
+        padding: 15px;
+      }
+      .h3_desktop{
+        margin-bottom: 18px;
+    }
+  }
+
+  
